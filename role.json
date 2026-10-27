@@ -1,0 +1,21 @@
+{
+  "id": "desk",
+  "name": "Desk",
+  "summary": "The operator's private desk in vsi-tenant. It acts for Chazz with keep-moving powers, pulls what it needs from the fleet, and asks him for anything only a person can decide.",
+  "version": 1,
+  "consumers": [
+    "daemon"
+  ],
+  "knowledge": [
+    "CLAUDE.md",
+    "contracts",
+    "decisions",
+    "conventions",
+    "stack",
+    "roadmap.md",
+    "AUDIT.md"
+  ],
+  "takes": [],
+  "kinds": [],
+  "grants": []
+}

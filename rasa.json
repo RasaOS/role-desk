@@ -1,0 +1,22 @@
+{
+  "$schema": "https://rasa-os.github.io/schema/rasa.schema.v1.json",
+  "contract_version": "1.3.0",
+  "name": "rasa.role.desk",
+  "version": "0.1.0",
+  "kind": "role",
+  "aliases": [
+    "role-desk"
+  ],
+  "description": "The desk: the operator's private working session in vsi-tenant (galt ADR 0020). As a role Element it is the source of the `desk` role.",
+  "source": {
+    "repo": "https://github.com/RasaOS/role-desk",
+    "branch": "main"
+  },
+  "tier": "Pro",
+  "capabilities": [],
+  "permissions": [],
+  "requires": {},
+  "rasa": {
+    "note": "PROVISIONAL: canon has no kind: role yet (galt ADR 0064, tenant ADR 2026-10-10-roles-are-element-modules). role.json and prompt.md are what the scheduler reads to publish the role."
+  }
+}
