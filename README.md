@@ -1,13 +1,25 @@
 # role-desk
 
-The `desk` role as a role Element (galt ADR 0064). PROVISIONAL: canon has no `kind: role` yet.
+**Version:** 0.2.0 · `rasa.module.role.desk` · private
 
-- `role.json`: the role's fields (id, name, summary, version, consumers, knowledge, takes, kinds, grants).
-- `prompt.md`: the role's prompt, byte for byte the body of `roles/desk.md` in `Vehicle-Safety-Inspections/vsi-tenant`.
-- `.claude-plugin/plugin.json`: the manifest a session needs to load this Element.
+The **Desk** role (`desk`) as a RasaOS role module. The operator's private desk in vsi-tenant. It acts for Chazz with keep-moving powers, pulls what it needs from the fleet, and asks him for anything only a person can decide.
 
-Source: `roles/desk.md` at vsi-tenant commit `fd0c872aa5ede09e4544419ddb42217e76bb5c74` (version 1).
+| File | What it is |
+|---|---|
+| `role.json` | The role's fields (id, name, summary, version, consumers, knowledge, takes, kinds, grants). galt publishes them to `/tenant_config/roles/desk`. |
+| `prompt.md` | The role's prompt, byte for byte the body of `roles/desk.md` in vsi-tenant. |
+| `.claude-plugin/plugin.json` | The plugin manifest, which makes the repo loadable into a session with `--plugin-dir`. |
+| `rasa.json` | The Element manifest: `kind: module`, with the role's id and version under `rasa`. |
+| `bin/check-role` | The release gate. |
 
-The assignment's mode (shadow or active) is chosen by the person when the role is assigned; it is not part of the role.
+Role version **1**, from `roles/desk.md` at vsi-tenant `fd0c872`.
 
-vsi-tenant's `roles/desk.md` points here with `element: RasaOS/role-desk@v0.1.0` once galt's role Element support is live.
+## Loading it
+
+- **As an agent's brain:** `galt agent new <name> --brain RasaOS/role-desk@v0.2.0`. galt reads `role.json` and `prompt.md`. There is no role assignment this way, so no grants.
+- **As the source of the published role:** the tenant's `roles/desk.md` becomes the one line `element: RasaOS/role-desk@v0.2.0`. After a person runs Publish roles, every agent with role `desk` loads this Element. This needs galt's scheduler to advertise `role_elements` (galt ADR 0064).
+- **Private:** a computer can fetch this repo only when the galt vault holds `RASAOS_GITHUB_TOKEN`. Without it the load fails closed.
+
+## Changing the role
+
+Until the tenant's `roles/desk.md` points here, that file is what Publish roles reads, and this repo is a snapshot of it. Change both together; see `CLAUDE.md`.
