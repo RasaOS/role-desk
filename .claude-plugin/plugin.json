@@ -1,5 +1,5 @@
 {
   "name": "rasa-role-desk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The Desk role (`desk`) as a RasaOS role module. The operator's private desk in vsi-tenant. It acts for Chazz with keep-moving powers, pulls what it needs from the fleet, and asks him for anything only a person can decide."
 }
