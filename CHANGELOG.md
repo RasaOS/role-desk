@@ -9,6 +9,7 @@ The role is unchanged: desk version 1, with `role.json` and `prompt.md` byte for
   - The name is `rasa.module.role.desk`; the old name, `rasa.role.desk`, is kept as an alias.
   - Adds contract 1.4.0, `requires.parent_kind`, the `role.desk` capability, and `rasa.role_id` / `rasa.role_version`.
 - Adds `CLAUDE.md`, `CHANGELOG.md`, `.gitignore` and `bin/check-role`, the release gate.
+- The repo is public: the README says so (no vault token needed to load it), CLAUDE.md rule 7 keeps secrets and production data out, and `bin/check-role` check 8 fails on secret-shaped strings.
 - `v0.1.0` stays where it is, so the pointer in vsi-tenant#248 still resolves.
 
 ## 0.1.0 — 2026-10-27
